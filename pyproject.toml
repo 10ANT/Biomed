@@ -1,0 +1,14 @@
+[project]
+name = "biomedparse"
+version = "0.1.0"
+description = "Python environment to develop the Gradio interface. Mocks the actual ML model."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "gradio==4.44.1",
+    "pytest>=8.3.4",
+    "torch>=2.5.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
