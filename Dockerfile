@@ -10,7 +10,7 @@ ARG CACHEBUST=1
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=UTC
 
-# Install system dependencies
+# Install system dependenciess
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     git \
     build-essential \
