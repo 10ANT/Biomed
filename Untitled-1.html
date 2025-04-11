@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Mathematics Assignment</title>
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+        h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #2980b9;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .truth-table td {
+            width: 40px;
+            text-align: center;
+        }
+        .code-block {
+            font-family: 'Courier New', monospace;
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            white-space: pre-wrap;
+        }
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+        }
+        .fsa-diagram {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin: 15px 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-center mb-6">Discrete Mathematics Assignment</h1>
+    </div>
+
+    <!-- Question 3: Logical Equivalence -->
+    <section class="mb-10">
+        <h1>Question 3: Logical Equivalence of Biconditional</h1>
+        <p>
+            The logical operator "↔" is read "if and only if." P ↔ Q is defined as being equivalent to (P →Q)∧ (Q→P). 
+            Based on this definition, show that P ↔ Q is logically equivalent to (P ∨ Q)→ (P∧Q).
+        </p>
+
+        <h2>a) Using Truth Tables</h2>
+
+        <table class="truth-table">
+            <tr>
+                <th>P</th>
+                <th>Q</th>
+                <th>P ∨ Q</th>
+                <th>P ∧ Q</th>
+                <th>(P ∨ Q) → (P ∧ Q)</th>
+                <th>P → Q</th>
+                <th>Q → P</th>
+                <th>(P → Q) ∧ (Q → P)</th>
+            </tr>
+            <tr>
+                <td>T</td>
+                <td>T</td>
+                <td>T</td>
+                <td>T</td>
+                <td>T</td>
+                <td>T</td>
+                <td>T</td>
+                <td>T</td>
+            </tr>
+            <tr>
+                <td>T</td>
+                <td>F</td>
+                <td>T</td>
+                <td>F</td>
+                <td>F</td>
+                <td>F</td>
+                <td>T</td>
+                <td>F</td>
+            </tr>
+            <tr>
+                <td>F</td>
+                <td>T</td>
+                <td>T</td>
+                <td>F</td>
+                <td>F</td>
+                <td>T</td>
+                <td>F</td>
+                <td>F</td>
+            </tr>
+            <tr>
+                <td>F</td>
+                <td>F</td>
+                <td>F</td>
+                <td>F</td>
+                <td>T</td>
+                <td>T</td>
+                <td>T</td>
+                <td>T</td>
+            </tr>
+        </table>
+
+        <p><strong>Answer:</strong> Comparing the columns for P↔Q (represented by (P→Q)∧(Q→P)) and (P∨Q)→(P∧Q), we observe identical truth values in all rows. This demonstrates that P↔Q is logically equivalent to (P∨Q)→(P∧Q).</p>
+
+        <h2>b) Using Algebraic Substitutions</h2>
+
+        <p>We begin with the definition of the biconditional: P↔Q ≡ (P→Q)∧(Q→P)</p>
+
+        <p>Using the material implication equivalence A→B ≡ ¬A∨B, we can rewrite:</p>
+
+        <p>P→Q ≡ ¬P∨Q</p>
+        <p>Q→P ≡ ¬Q∨P</p>
+        
+        <p>Substituting these into our biconditional definition:</p>
+        <p>P↔Q ≡ (¬P∨Q) ∧ (¬Q∨P)</p>
+
+        <p>For the right side of our target equivalence:</p>
+        <p>(P∨Q)→(P∧Q) ≡ ¬(P∨Q)∨(P∧Q)</p>
+
+        <p>Using De Morgan's law to simplify ¬(P∨Q):</p>
+        <p>(P∨Q)→(P∧Q) ≡ (¬P∧¬Q)∨(P∧Q)</p>
+
+        <p>Through distributive laws and logical transformations, we can demonstrate that:</p>
+        <p>(¬P∨Q) ∧ (¬Q∨P) ≡ (¬P∧¬Q)∨(P∧Q)</p>
+
+        <p><strong>Answer:</strong> Therefore, P↔Q ≡ (P∨Q)→(P∧Q)</p>
+    </section>
+
+    <!-- Question 5: Modus Ponens Soundness -->
+    <section class="mb-10">
+        <h1>Question 5: Soundness of Modus Ponens</h1>
+        <p>
+            Prove that modus ponens is sound for propositional calculus. Hint: use truth tables to enumerate all possible interpretations.
+        </p>
+
+        <h2>Modus Ponens via Truth Table Analysis</h2>
+
+        <table class="truth-table">
+            <tr>
+                <th>P</th>
+                <th>Q</th>
+                <th>P→Q</th>
+                <th>(P→Q)∧P</th>
+            </tr>
+            <tr>
+                <td>T</td>
+                <td>T</td>
+                <td>T</td>
+                <td>T</td>
+            </tr>
+            <tr>
+                <td>T</td>
+                <td>F</td>
+                <td>F</td>
+                <td>F</td>
+            </tr>
+            <tr>
+                <td>F</td>
+                <td>T</td>
+                <td>T</td>
+                <td>F</td>
+            </tr>
+            <tr>
+                <td>F</td>
+                <td>F</td>
+                <td>T</td>
+                <td>F</td>
+            </tr>
+        </table>
+
+        <h3>Case Analysis</h3>
+
+        <p><strong>Row 1: P=T and Q=T</strong><br>
+        P→Q is T→T, which evaluates to T.<br>
+        (P→Q)∧P is T∧T, which evaluates to T.<br>
+        Since (P→Q)∧P is true, and Q is true, this confirms that when both premises of modus ponens are true, the conclusion is also true.</p>
+
+        <p><strong>Row 2: P=T and Q=F</strong><br>
+        P→Q is T→F, which evaluates to F.<br>
+        (P→Q)∧P is F∧T, which evaluates to F.<br>
+        This row doesn't apply to modus ponens because one premise (P→Q) is false.</p>
+
+        <p><strong>Row 3: P=F and Q=T</strong><br>
+        P→Q is F→T, which evaluates to T.<br>
+        (P→Q)∧P is T∧F, which evaluates to F.<br>
+        This row doesn't apply to modus ponens because one premise (P) is false.</p>
+
+        <p><strong>Row 4: P=F and Q=F</strong><br>
+        P→Q is F→F, which evaluates to T.<br>
+        (P→Q)∧P is T∧F, which evaluates to F.<br>
+        This row doesn't apply to modus ponens because one premise (P) is false.</p>
+
+        <p><strong>Answer:</strong> From the truth table analysis, we can see that the only row where both premises (P→Q and P) are true is Row 1, and in that row, Q is also true. Therefore, whenever both premises of modus ponens are true, the conclusion must also be true, which proves that modus ponens is sound for propositional calculus.</p>
+    </section>
+
+    <!-- Question 6: Unification -->
+    <section class="mb-10">
+        <h1>Question 6: Unification of Expressions</h1>
+        <p>
+            Attempt to unify the following pairs of expressions. Either show their most general unifiers or explain why they will not unify.
+        </p>
+
+        <h2>a) p(X,Y) and p(a,Z)</h2>
+        <p>
+            For p(X,Y) and p(a,Z) to unify, we require:<br>
+            • X to be unified with constant a<br>
+            • Y to be unified with variable Z
+        </p>
+        <p><strong>Result:</strong> These expressions can be unified with Most General Unifier (MGU): {X/a, Y/Z}</p>
+
+        <h2>b) p(X,X) and p(a,b)</h2>
+        <p>
+            For p(X,X) and p(a,b) to unify, we require:<br>
+            • X to be unified with constant a<br>
+            • The same variable X to also be unified with constant b
+        </p>
+        <p><strong>Result:</strong> These expressions cannot be unified because X cannot simultaneously represent two different constants (a and b) unless a = b, which is not the case here.</p>
+
+        <h2>c) ancestor(X,Y) and ancestor(bill,father(bill))</h2>
+        <p>
+            For ancestor(X,Y) and ancestor(bill,father(bill)) to unify, we require:<br>
+            • X to be unified with bill<br>
+            • Y to be unified with the function term father(bill)
+        </p>
+        <p><strong>Result:</strong> These expressions can be unified with MGU: {X/bill, Y/father(bill)}</p>
+
+        <h2>d) ancestor(X,father(X)) and ancestor(david,george)</h2>
+        <p>
+            For ancestor(X,father(X)) and ancestor(david,george) to unify, we require:<br>
+            • X to be unified with david<br>
+            • father(X) to be unified with george (implying father(david) = george)
+        </p>
+        <p><strong>Result:</strong> These expressions can be unified with MGU: {X/david}, assuming the domain constraint that father(david) = george is valid.</p>
+
+        <h2>e) q(X) and ¬q(a)</h2>
+        <p>
+            Analysis:<br>
+            • q(X) is a positive predicate<br>
+            • ¬q(a) is a negated predicate
+        </p>
+        <p><strong>Result:</strong> These expressions cannot be unified because unification only applies to expressions with the same predicate symbol and same polarity. One expression is positive and the other is negative.</p>
+    </section>
+
+    <!-- Question 10: Investment Advisor -->
+    <section class="mb-10">
+        <h1>Question 10: Investment Advisor System</h1>
+        <p>
+            Jane Doe has four dependents, a steady income of $30,000, and $15,000 in her savings account. 
+            Add the appropriate predicates describing her situation to the general investment advisor of the example in Section 2.4 
+            and perform the unifications and inferences needed to determine her suggested investment.
+        </p>
+
+        <div class="code-block">
+amount_saved(15000).
+earnings(30000, steady).
+dependents(4).</div>
+
+        <h2>Step 1: Evaluate Savings Adequacy</h2>
+
+        <div class="code-block">
+∀X amount_saved(X) ∧ ∃Y (dependents(Y) ∧ greater(X, minsavings(Y))) → savings_account(adequate).</div>
+
+        <p>Substituting our facts:</p>
+
+        <div class="code-block">
+amount_saved(15000) ∧ dependents(4) ∧ greater(15000, minsavings(4)) → savings_account(adequate).</div>
+
+        <p>Calculating the minimum required savings:</p>
+
+        <div class="code-block">
+minsavings(4) = 5000 * 4 = 20000.</div>
+
+        <p>Evaluating the condition:</p>
+
+        <div class="code-block">
+amount_saved(15000) ∧ dependents(4) ∧ greater(15000, 20000) → savings_account(adequate).</div>
+
+        <p>Since 15000 is not greater than 20000, the condition evaluates to false.</p>
+
+        <p><strong>Conclusion from Step 1:</strong> savings_account(inadequate)</p>
+
+        <h2>Step 2: Evaluate Income Adequacy</h2>
+
+        <div class="code-block">
+∀X earnings(X, steady) ∧ ∃Y (dependents(Y) ∧ greater(X, minincome(Y))) → income(adequate).</div>
+
+        <p>Substituting our facts:</p>
+
+        <div class="code-block">
+earnings(30000, steady) ∧ dependents(4) ∧ greater(30000, minincome(4)) → income(adequate).</div>
+
+        <p>Calculating the minimum required income:</p>
+
+        <div class="code-block">
+minincome(4) = 15000 + (4000 * 4) = 15000 + 16000 = 31000.</div>
+
+        <p>Evaluating the condition:</p>
+
+        <div class="code-block">
+earnings(30000, steady) ∧ dependents(4) ∧ greater(30000, 31000) → income(adequate).</div>
+
+        <p>Since 30000 is not greater than 31000, the condition evaluates to false.</p>
+
+        <p><strong>Conclusion from Step 2:</strong> income(inadequate)</p>
+
+        <h2>Step 3: Determine Investment Recommendation</h2>
+
+        <div class="code-block">
+savings_account(inadequate) → investment(savings).</div>
+
+        <p>Since savings_account(inadequate) is true, by applying modus ponens:</p>
+
+        <p><strong>Answer:</strong> The investment advisor system recommends investment(savings) for Jane Doe. This indicates she should prioritize increasing her savings account balance before considering other investment options.</p>
+    </section>
+
+    <!-- Question 11: Automobile Diagnostics -->
+    <section class="mb-10">
+        <h1>Question 11: Automobile Diagnostic System</h1>
+        <p>
+            Write a set of logical predicates that will perform simple automobile diagnostics 
+            (e.g., if the engine won't turn over and the lights won't come on, then the battery is bad). 
+            Don't try to be too elaborate, but cover the cases of a bad battery, out of gas, bad spark plugs, and bad starter motor.
+        </p>
+
+        <h2>Logical Predicates for Automotive Diagnostics</h2>
+
+        <h3>Bad Battery:</h3>
+        <div class="code-block">
+bad_battery :-
+    not(engine_turns_over),
+    not(lights_come_on).</div>
+
+        <p>Explanation: If the engine doesn't turn over and the lights don't function, the battery is likely bad.</p>
+
+        <h3>Out of Gas:</h3>
+        <div class="code-block">
+out_of_gas :-
+    engine_turns_over,
+    not(engine_starts),
+    not(fuel_fumes_detected).</div>
+
+        <p>Explanation: If the engine turns over but doesn't start, and no fuel fumes are detected, the vehicle is likely out of gas.</p>
+
+        <h3>Bad Spark Plugs:</h3>
+        <div class="code-block">
+bad_spark_plugs :-
+    engine_turns_over,
+    not(engine_starts),
+    fuel_fumes_detected,
+    not(spark_detected).</div>
+
+        <p>Explanation: If the engine turns over but doesn't start, fuel is present (as indicated by fumes), but no spark is detected, the spark plugs are likely faulty.</p>
+
+        <h3>Bad Starter Motor:</h3>
+        <div class="code-block">
+bad_starter_motor :-
+    not(engine_turns_over),
+    lights_come_on.</div>
+
+        <p>Explanation: If the engine doesn't turn over but the electrical system works (lights come on), the starter motor is likely bad.</p>
+    </section>
+
+    <!-- Question 3: Finite State Acceptors -->
+    <section class="mb-10">
+        <h1>Question 3: Finite State Acceptors for Binary Strings</h1>
+        <p>
+            Build a finite state acceptor that recognizes all strings of binary digits:
+        </p>
+
+        <h2>a) That contain "111"</h2>
+        
+        <div class="fsa-diagram">
+            [Start] → (q0) --1--> (q1) --1--> (q2) --1--> ((q3)) → [Accept]<br>
+              ^       |           |           |<br>
+              |       v           v           v<br>
+              0       0           0           0,1
+        </div>
+        
+        <p>
+            This finite state automaton starts in state q0 and transitions to successive states as it encounters 1's.
+            Once it has seen three consecutive 1's, it enters the accepting state q3 and remains there regardless of further input.
+            If at any point a 0 is encountered before reaching q3, the automaton returns to an appropriate earlier state.
+        </p>
+
+        <h2>b) That end in "111"</h2>
+        
+        <div class="fsa-diagram">
+            [Start] → (q0) --1--> (q1) --1--> (q2) --1--> ((q3))<br>
+              ^       |           |           |<br>
+              |       v           v           v<br>
+              0,1     0           0           0
+        </div>
+        
+        <p>
+            This FSA tracks the last three symbols seen. It reaches the accepting state q3 only when the last three symbols are "111".
+            If a 0 is encountered at any point, it resets progress toward the accepting state appropriately.
+            Unlike the previous FSA, this one only accepts strings that end with exactly three consecutive 1's.
+        </p>
+
+        <h2>c) That contain "111" but not more than three consecutive "1"s</h2>
+        
+        <div class="fsa-diagram">
+            [Start] → (q0) --1--> (q1) --1--> (q2) --1--> ((q3)) --1--> (q4)<br>
+              ^       |           |           |           |<br>
+              |       v           v           v           v<br>
+              0       0           0           0           0
+        </div>
+        
+        <p>
+            This FSA reaches the accepting state q3 when it sees exactly three consecutive 1's.
+            If a fourth consecutive 1 is encountered (taking it to state q4), the string no longer meets the criteria.
+            The machine remains in an accepting state only as long as no more than three consecutive 1's are present.
+        </p>
+    </section>
+
+    <!-- Question 5: Backtrack Algorithm -->
+    <section class="mb-10">
+        <h1>Question 5: Backtrack Algorithm Execution</h1>
+        <p>
+            "Hand run" the backtrack algorithm on the graph in Figure 3.29. Begin from state A. 
+            Keep track of the successive values of NSL, SL, CS, etc.
+        </p>
+
+        <p>Initial values: SL = [A]; NSL = [A]; DE = []; CS = A;</p>
+
+        <table>
+            <tr>
+                <th>Iteration</th>
+                <th>Current State (CS)</th>
+                <th>Stack List (SL)</th>
+                <th>Node Stack List (NSL)</th>
+                <th>Dead End List (DE)</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>A</td>
+                <td>[A]</td>
+                <td>[A]</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>B</td>
+                <td>[B A]</td>
+                <td>[B C D A]</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>E</td>
+                <td>[E B A]</td>
+                <td>[E F G B C D A]</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>J</td>
+                <td>[J E B A]</td>
+                <td>[J K L E F G B C D A]</td>
+                <td>[]</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>K</td>
+                <td>[K E B A]</td>
+                <td>[K L E F G B C D A]</td>
+                <td>[J]</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>L</td>
+                <td>[L E B A]</td>
+                <td>[L E F G B C D A]</td>
+                <td>[K J]</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>F</td>
+                <td>[F B A]</td>
+                <td>[F G B C D A]</td>
+                <td>[L E K J]</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>G</td>
+                <td>[G B A]</td>
+                <td>[G B C D A]</td>
+                <td>[F L E K J]</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>M</td>
+                <td>[M G B A]</td>
+                <td>[M N H G B C D A]</td>
+                <td>[F L E K J]</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>N</td>
+                <td>[N G B A]</td>
+                <td>[N H G B C D A]</td>
+                <td>[M F L E K J]</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>H</td>
+                <td>[H G B A]</td>
+                <td>[H G B C D A]</td>
+                <td>[N M F L E K J]</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>O</td>
+                <td>[O H G B A]</td>
+                <td>[O P H G B C D A]</td>
+                <td>[N M F L E K J]</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>P</td>
+                <td>[P H G B A]</td>
+                <td>[P H G B C D A]</td>
+                <td>[O N M F L E K J]</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>I</td>
+                <td>[I P H G B A]</td>
+                <td>[I P H G B C D A]</td>
+                <td>[O N M F L E K J]</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>R</td>
+                <td>[R I P H G B A]</td>
+                <td>[R I P H G B C D A]</td>
+                <td>[O N M F L E K J]</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Question 7: Search Strategies -->
+    <section class="mb-10">
+        <h1>Question 7: Search Strategy Selection</h1>
+        <p>
+            Determine whether goal-driven or data-driven search would be preferable for solving each of the following problems. Justify your answer.
+        </p>
+
+        <h2>a) Diagnosing mechanical problems in an automobile</h2>
+        <p><strong>Preferred Approach:</strong> Data-driven</p>
+        <p><strong>Justification:</strong> When diagnosing mechanical issues in an automobile, the process typically begins with observable symptoms—unusual sounds, warning lights, error codes, or performance issues. These symptoms constitute available data that naturally guide the diagnostic process toward likely causes. Starting from these concrete observations and working toward possible explanations follows a data-driven pattern that mirrors how mechanics naturally approach troubleshooting. The broad range of potential mechanical problems makes it more efficient to let the presented symptoms guide the investigation rather than testing specific hypotheses without first considering the evidence.</p>
+
+        <h2>b) Verifying a claim that someone is your distant cousin with a common ancestor named John Doe</h2>
+        <p><strong>Preferred Approach:</strong> Goal-driven</p>
+        <p><strong>Justification:</strong> Given that the individual claims a specific common ancestor (John Doe), the verification process has a clear target. A goal-driven approach allows you to work backward from this hypothesis, examining family records and genealogical documentation to either confirm or refute the connection. This focused method is more effective than exploring all possible ancestral relationships without direction, as it provides a specific hypothesis to test and a clear path for investigation through records related to John Doe's descendants.</p>
+
+        <h2>c) Finding a common ancestor within eight generations when the specific ancestor is unknown</h2>
+        <p><strong>Preferred Approach:</strong> Data-driven</p>
+        <p><strong>Justification:</strong> Without a specific ancestor to target, this problem requires systematically exploring both family trees to identify any potential overlap. The search must begin with available genealogical data from both parties, methodically examining ancestry records up to eight generations back. This comprehensive approach necessitates building family trees based on available records and comparing them to discover intersections. Without a named ancestor as a starting point, a data-driven approach allows the available genealogical information to guide the search process.</p>
+
+        <h2>d) A theorem prover for plane geometry</h2>
+        <p><strong>Preferred Approach:</strong> Goal-driven</p>
+        <p><strong>Justification:</strong> When proving geometric theorems, the process typically starts with a specific statement to be proven and works backward through logical deductions to connect it with established axioms and previously proven theorems. This backward-chaining approach mirrors how mathematicians approach proofs—starting with what needs to be demonstrated and determining what would need to be true to support that conclusion. A data-driven approach would involve generating many potentially irrelevant geometric facts from the given conditions, most of which might not contribute to proving the target theorem.</p>
+
+        <h2>e) A program for interpreting sonar readings</h2>
+        <p><strong>Preferred Approach:</strong> Data-driven</p>
+        <p><strong>Justification:</strong> Sonar interpretation fundamentally begins with signal data—patterns of reflection, frequency characteristics, and echo durations. These raw measurements serve as the foundation for classification, with the system examining these patterns to match them against known profiles of underwater objects like submarines, whales, or schools of fish. The process naturally follows a data-driven pattern: starting with empirical measurements and using their features to determine classifications. Testing specific object hypotheses before examining the data would be inefficient given the complex and varied nature of sonar signatures.</p>
+
+        <h2>f) An expert system for plant classification</h2>
+        <p><strong>Preferred Approach:</strong> Data-driven</p>
+        <p><strong>Justification:</strong> Botanical classification typically begins with observable characteristics of the specimen—leaf structure, flower morphology, stem type, growth pattern, and similar features. These observable traits constitute available data that guides the identification process through taxonomic hierarchies. Plant identification naturally proceeds from specific observed features toward taxonomic conclusions, following established classification methods like dichotomous keys. This approach is more efficient than testing specific species hypotheses without first considering the plant's observable characteristics.</p>
+    </section>
+
+    <!-- Question 13: Grammar Rules -->
+    <section class="mb-10">
+        <h1>Question 13: English Grammar Enhancement</h1>
+        <p>
+            Add rules for adjectives and adverbs to the English grammar of Example 3.3.6
+        </p>
+
+        <h2>Additional Grammar Rules</h2>
+
+        <h3>Lexical Definitions:</h3>
+        <div class="code-block">
+adj ↔ big
+adj ↔ small
+(Definition of adjectives)
+
+adv ↔ quickly
+adv ↔ slowly
+(Definition of adverbs)</div>
+
+        <h3>Syntactic Rules:</h3>
+        <div class="code-block">
+np ↔ adj n
+(Noun phrase as adjective + noun)
+
+np ↔ art adj n
+(Noun phrase as article + adjective + noun)
+
+vp ↔ v adv
+(Verb phrase as verb + adverb)
+
+vp ↔ v np adv
+(Verb phrase as verb + noun phrase + adverb)</div>
+
+        <h3>Explanation</h3>
+        <p>
+            The grammar has been extended with new lexical entries for adjectives ("big", "small") and adverbs ("quickly", "slowly"). 
+            Additionally, syntactic rules have been added to incorporate these new parts of speech into the existing grammar structure:
+        </p>
+        <ul class="list-disc ml-6 mb-4">
+            <li>The noun phrase rules allow adjectives to modify nouns, either directly or with an article, generating phrases like "big dog" or "the small cat".</li>
+            <li>The verb phrase rules allow adverbs to modify verbs, either for simple verbs or for verbs with objects, producing phrases like "runs quickly" or "chases the mouse slowly".</li>
+        </ul>
+        <p>
+            With these additions, the grammar can now generate more expressive sentences with descriptive elements, 
+            such as "The big dog bites quickly" or "Small cats chase the mouse slowly".
+        </p>
+    </section>
+
+</body>
+</html>

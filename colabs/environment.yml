@@ -134,7 +134,7 @@ dependencies:
       - portalocker==2.10.1
       - py-cpuinfo==9.0.0
       - pycocotools==2.0.7
-      - pydantic==2.10.6
+      - pydantic==1.10.18
       - pydot==3.0.1
       - regex==2023.10.3
       - scikit-image==0.21.0
